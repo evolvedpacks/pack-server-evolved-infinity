@@ -7,7 +7,7 @@ on:
 
 jobs:
 
-  build:
+  build-release:
     
     runs-on: ubuntu-latest
 
@@ -30,14 +30,14 @@ jobs:
     - name: Assemble Zip
       run: |
         zip -9 evi-server-$(git describe --tags --abbrev=0).zip \
-          config/** mods/** libraries/** ./eula.txt ./version.txt ./forge-* \
-          ./minecraft_server.1.12.2.jar ./server-icon.png
+          config/** mods/** libraries/** eula.txt version.txt forge-* \
+          minecraft_server.1.12.2.jar server-icon.png
 
     - name: Assemble TGZ
       run: |
-        tar -czf evi-server-$(git describe --tags --abbrev=0).tar.gz \
-          config/** mods/** libraries/** ./eula.txt ./version.txt ./forge-* \
-          ./minecraft_server.1.12.2.jar ./server-icon.png  
+        tar -czvf evi-server-$(git describe --tags --abbrev=0).tar.gz \
+          config/** mods/** libraries/** eula.txt version.txt forge-* \
+          minecraft_server.1.12.2.jar server-icon.png  
 
     - name: Deploy to Releases
       env:
@@ -47,3 +47,23 @@ jobs:
           -a ./evi-server-$(git describe --tags --abbrev=0).tar.gz
           -F ./CHANGELOG.md
           $(git describe --tags --abbrev=0)'
+
+
+  build-image:
+
+    runs-on: ubuntu-latest
+
+    steps:
+
+    - name: Repository Checkout
+      uses: actions/checkout@v2
+
+    - name: Docker Build
+      run: |
+        docker build . \
+          -t evolvedpacks/evi:$(git describe --tags --abbrev=0)
+
+    - name: Docker Push
+      run: |
+        docker login -u zekro -p ${{ secrets.DOCKER_PASSWORD }}
+        docker push evolvedpacks/evi:$(git describe --tags --abbrev=0)
