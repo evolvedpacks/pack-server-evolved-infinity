@@ -1,0 +1,49 @@
+name: CD Tags
+
+on:
+  push:
+    tags:
+    - '*'
+
+jobs:
+
+  build:
+    
+    runs-on: ubuntu-latest
+
+    steps:
+    
+    - name: Set up Hub
+      run: sudo snap install hub --classic
+
+    - name: Set up Zip
+      run: sudo apt install -y zip
+
+    - name: Repository Checkout
+      uses: actions/checkout@v2
+
+    - name: Create EULA and Version Files
+      run: |
+        echo "eula=true" > ./eula.txt
+        echo "$(git describe --tags --abbrev=0)" > ./version.txt
+
+    - name: Assemble Zip
+      run: |
+        zip -9 evi-server-$(git describe --tags --abbrev=0).zip \
+          config/** mods/** libraries/** ./eula.txt ./version.txt ./forge-* \
+          ./minecraft_server.1.12.2.jar ./server-icon.png
+
+    - name: Assemble TGZ
+      run: |
+        tar -czf evi-server-$(git describe --tags --abbrev=0).tar.gz \
+          config/** mods/** libraries/** ./eula.txt ./version.txt ./forge-* \
+          ./minecraft_server.1.12.2.jar ./server-icon.png  
+
+    - name: Deploy to Releases
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      run: 'hub release create
+          -a ./evi-server-$(git describe --tags --abbrev=0).zip
+          -a ./evi-server-$(git describe --tags --abbrev=0).tar.gz
+          -F ./CHANGELOG.md
+          $(git describe --tags --abbrev=0)'
