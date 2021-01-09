@@ -16,7 +16,6 @@ COPY ./mods ./mods
 COPY ./forge-* ./forge.jar
 COPY ./minecraft_server.1.12.2.jar ./minecraft_server.1.12.2.jar
 COPY ./server-icon.png ./server-icon.png
-COPY ./version
 
 ENV VERSION=$VERSION
 
