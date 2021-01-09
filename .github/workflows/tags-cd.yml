@@ -62,6 +62,7 @@ jobs:
       run: |
         TAG=$(git describe --tags --abbrev=0)
         docker build . \
+          --build-arg VERSION=$(git describe --tags --abbrev=0) \
           -t evolvedpacks/evi:${TAG%+*} \
           -f .docker/Dockerfile
 
