@@ -60,10 +60,13 @@ jobs:
 
     - name: Docker Build
       run: |
+        TAG=$(git describe --tags --abbrev=0)
         docker build . \
-          -t evolvedpacks/evi:$(git describe --tags --abbrev=0)
+          -t evolvedpacks/evi:${TAG%+*} \
+          -f .docker/Dockerfile
 
     - name: Docker Push
       run: |
+        TAG=$(git describe --tags --abbrev=0)
         docker login -u zekro -p ${{ secrets.DOCKER_PASSWORD }}
-        docker push evolvedpacks/evi:$(git describe --tags --abbrev=0)
+        docker push evolvedpacks/evi:${TAG%+*}
