@@ -74,6 +74,7 @@ jobs:
         docker build . \
           --build-arg VERSION=$(git describe --tags --abbrev=0) \
           -t evolvedpacks/evi:${TAG%+*} \
+          -t evolvedpacks/evi:latest \
           -f .docker/Dockerfile
 
     - name: Docker Push
@@ -81,3 +82,4 @@ jobs:
         TAG=$(git describe --tags --abbrev=0)
         docker login -u zekro -p ${{ secrets.DOCKER_PASSWORD }}
         docker push evolvedpacks/evi:${TAG%+*}
+        docker push evolvedpacks/evi:latest
