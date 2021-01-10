@@ -48,6 +48,16 @@ jobs:
           -F ./CHANGELOG.md
           $(git describe --tags --abbrev=0)'
 
+    - name: Deploy to Download Trunk
+      env:
+        CDN_UPLOAD_SECRET: ${{ secrets.CDN_UPLOAD_SECRET }}
+      run: |
+        curl \
+          -X PUT \
+          -H "Authorization: Basic $CDN_UPLOAD_SECRET" \
+          -F "file=@evi-server-$(git describe --tags --abbrev=0).zip" \
+          https://cdn.zekro.de/modpacks/evolved-infinity/trunk/server/latest.zip
+
 
   build-image:
 
