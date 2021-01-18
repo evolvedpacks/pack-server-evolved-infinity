@@ -33,7 +33,7 @@ COPY ./server-icon.png ./server-icon.png
 COPY --from=healthcheck-build /build/healthcheck /bin/healthcheck
 # 90 Retries * 10s -> 15 Minutes Startup Time Assumption
 HEALTHCHECK --interval=10s --timeout=10s --retries=90 \
-    CMD /bin/healthcheck -addr localhost:25565 -validateResponse -silent
+    CMD /bin/healthcheck -addr localhost:25565 -validateResponse
 
 ENV VERSION=$VERSION
 
