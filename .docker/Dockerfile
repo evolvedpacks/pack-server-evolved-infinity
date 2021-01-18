@@ -31,7 +31,8 @@ COPY ./minecraft_server.1.12.2.jar ./minecraft_server.1.12.2.jar
 COPY ./server-icon.png ./server-icon.png
 
 COPY --from=healthcheck-build /build/healthcheck /bin/healthcheck
-HEALTHCHECK --interval=10s --timeout=10s \
+# 90 Retries * 10s -> 15 Minutes Startup Time Assumption
+HEALTHCHECK --interval=10s --timeout=10s --retries=90 \
     CMD /bin/healthcheck -addr localhost:25565 -validateResponse -silent
 
 ENV VERSION=$VERSION
