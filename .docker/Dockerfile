@@ -1,4 +1,17 @@
-FROM openjdk:8-alpine
+# --- BUILD HEALTHCHECK TOOL STAGE ---------------------------------
+
+FROM golang:1.15-alpine AS healthcheck-build
+WORKDIR /build
+
+RUN apk add git
+RUN git clone https://github.com/evolvedpacks/healthcheck \
+        --branch master --depth 1 .
+RUN go mod download
+RUN go build -v -o healthcheck ./cmd/healthcheck/main.go
+
+# --- FINAL IMAGE STAGE --------------------------------------------
+
+FROM openjdk:8-alpine AS final
 
 ARG VERSION=latest
 
@@ -16,6 +29,10 @@ COPY ./mods ./mods
 COPY ./forge-* ./forge.jar
 COPY ./minecraft_server.1.12.2.jar ./minecraft_server.1.12.2.jar
 COPY ./server-icon.png ./server-icon.png
+
+COPY --from=healthcheck-build /build/healthcheck /bin/healthcheck
+HEALTHCHECK --interval=10s --timeout=10s \
+    CMD /bin/healthcheck -addr localhost:25565 -validateResponse -silent
 
 ENV VERSION=$VERSION
 
