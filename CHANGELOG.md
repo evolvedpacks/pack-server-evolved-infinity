@@ -1,5 +1,3 @@
-1.22.0+86
+1.23.0+88
 
-• update mod Logistics Pipes
-
-• revert mod Energy Control from 0.1.9 to 0.1.8
+• update mod Ore Stone Variants
