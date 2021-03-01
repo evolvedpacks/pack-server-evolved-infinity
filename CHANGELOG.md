@@ -1,3 +1,14 @@
-1.23.0+88
+1.24.0+90
 
-• update mod Ore Stone Variants
+• add mod Tinkers' Tool Leveling
+
+• add config Tinkers' Tool Leveling
+
+• update mod Logistics Pipes
+• update mod Materialis
+
+• update config Ore Stone Variants
+
+• remove mod Liquid Blocks
+
+• remove config Liquid Blocks
