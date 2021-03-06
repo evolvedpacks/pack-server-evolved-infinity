@@ -1,14 +1,27 @@
-1.24.0+90
+1.25.0+94
 
-• add mod Tinkers' Tool Leveling
+• add mod Chiseled Med
+• add mod End Ores
+• add mod Hot Swap
+• add mod Liquid Blocks
+• add mod Ore Berries
+• add mod Spark
 
-• add config Tinkers' Tool Leveling
+• add config Chiseled Me
+• add config End Ores
+• add config Liquid Blocks
+• add config Ore Berries
 
 • update mod Logistics Pipes
-• update mod Materialis
 
-• update config Ore Stone Variants
+• update config Falling Tree
 
-• remove mod Liquid Blocks
+• remove mod Advanced Alloy Ingot
+• remove mod Backpacks
+• remove mod Moar Tinkers
+• remove mod Netherending Ores
+• remove mod Quick Store
 
-• remove config Liquid Blocks
+• remove config Backpacks
+• remove config Moar Tinkers
+• remove config Netherending Ores
