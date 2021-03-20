@@ -1,4 +1,8 @@
-1.26.0+96
+1.27.0+98
 
-• update mod Logistics Pipes
-• update mod Shadows Of Greg
+• update mod Condition Overload
+• update mod Mystical Lib
+• update mod Ore Stone Variants
+• update mod Total Tinkers
+
+• update config Condition Overload
