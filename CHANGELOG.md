@@ -1,15 +1,11 @@
-1.28.0+100
+1.29.0+102
 
-• add mod Floralis
+• add mod Immersive Chemical Engineering
 
-• add config Floralis
+• add config Immersive Chemical Engineering
 
-• update mod Immersive Technology
-• update mod Lazy Applied Energistics 2
-• update mod Tinkers' Reforged
+• update mod JAOPCA
 
-• update config Tinkers' Reforged
+• remove mod Floralis
 
-• remove mod Pam's Weee! Flowers
-
-• remove config Pam's Weee! Flowers
+• remove config Floralis
