@@ -1,8 +1,9 @@
-1.39.0+126
+1.40.0+128
 
-• update mod Energy Control
-• update mod Hammer Lib
+• update mod Aroma Backup S3
+• update mod Botaunomy Reloaded
+• update mod Immersive Chemical Engineering
 • update mod Immersive Technology
-• update mod More Electric Tools
+• update mod Lib Nine
 
-• update config Immersive Technology
+• update config Aroma Backup S3
