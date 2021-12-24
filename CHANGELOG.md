@@ -1,9 +1,7 @@
-1.40.0+128
+1.41.0+130
 
-• update mod Aroma Backup S3
-• update mod Botaunomy Reloaded
-• update mod Immersive Chemical Engineering
-• update mod Immersive Technology
-• update mod Lib Nine
+• update dependency Forge
 
-• update config Aroma Backup S3
+• update mod Biomes O Plenty
+• update mod Mystical Adaptations
+• update mod Wanion Lib
