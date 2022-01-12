@@ -1,7 +1,6 @@
-1.41.0+130
+1.42.0+132
 
-• update dependency Forge
-
-• update mod Biomes O Plenty
-• update mod Mystical Adaptations
+• update mod Just Enough IDs
 • update mod Wanion Lib
+
+• update config More Tcon
