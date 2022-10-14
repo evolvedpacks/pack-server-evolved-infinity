@@ -1,24 +1,19 @@
-1.43.0+134
+1.44.0+136
 
-• add mod AE2 Utilities
-• add mod Mixin Booter
-• add mod Not Enough Energistics
-• add mod Tinker Toolcasts
+• add mod Bird On A Wire
+• add mod Seared Ladder
 
-• update mod Combo Armors
 • update mod Energy Control
 • update mod Engineers Decor
-• update mod Hammer Lib
-• update mod Immersive Technology
-• update mod More Tcon
-• update mod Mystical Adaptations
-• update mod Plus Tic
+• update mod Foam Fix
+• update mod Mixin Booter
+• update mod More Tinkers Construct
+• update mod Tinkers Toolcasts
 • update mod U Team Core
 
-• add config Agricraft
-• add config More Tcon
-• add config Not Enough Energistics
-• add config Tinker Toolcasts
-
 • update config Energy Control
-• update config Hammer Lib
+• update config Foam Fix
+• update config More Tinkers Construct
+• update config Tinker Toolcasts
+
+• fix console output formatting
